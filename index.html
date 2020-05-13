@@ -1,94 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="assets/style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>Weather Dashboard</title>
-    </head>
-    <body>
-        <header class="page-header">
-            <h1 id="display-h1">Weather Dashboard</h1>
-        </header>
-        <div class="container" id="container">
-            <form class="search-history-form">
-                <h4 id="display=h3">Search for a city:</h4>
-                <input type="text" id="city-search">
-                <i class="fas fa-search"></i>
-                <section id="search-history">
-                    
-                </section>
-            </form>
-            <div class="col">
-                <div class="card" id="main">
-                    <h2 class="card-header">Atlanta</h2>
-                    <div id="display-temp">Temperature:</div>
-                    <div id="display-hum">Humidity:</div>
-                    <div id="display-wind">Wind Speed:</div>
-                    <div id="display-uv">UV Index:</div>
-                </div>
-                <h2 id=display-h2>5 Day Forecast:</h2>
-                <section id="5-day">
-                    <div class="card" id="day-1" style="width: 10rem;">
-                        <div class="card-body">
-                          <h5 class="card-title"></h5>
-                          <i id="weather-icon"></i>
-                          <p class="card-text">
-                              Temp:
-                                <br><br>
-                              Humidity:
-                            </p>
-                        </div>
-                      </div>
-                      <div class="card" id="day-2" style="width: 10rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <i id="weather-icon"></i>
-                            <p class="card-text">
-                                Temp:
-                                  <br><br>
-                                Humidity:
-                              </p>
-                        </div>
-                      </div>
-                      <div class="card" id="day-3" style="width: 10rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <i id="weather-icon"></i>
-                            <p class="card-text">
-                                Temp:
-                                  <br><br>
-                                Humidity:
-                              </p>
-                        </div>
-                      </div>
-                      <div class="card" id="day-4" style="width: 10rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <i id="weather-icon"></i>
-                            <p class="card-text">
-                                Temp:
-                                  <br><br>
-                                Humidity:
-                              </p>
-                        </div>
-                      </div>
-                      <div class="card" id="day-5" style="width: 10rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"></h5>
-                            <i id="weather-icon"></i>
-                            <p class="card-text">
-                                Temp:
-                                  <br><br>
-                                Humidity:
-                              </p>
-                        </div>
-                      </div>
-                </section>
-            </div>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1 id="display-h1">Weather Dashboard</h1>
+    </header>
+    <div class="container" id="container">
+      <form class="search-history-form">
+        <h4 id="display=h3">Search for a city:</h4>
+        <input type="text" id="city-search" />
+        <button class="fas fa-search" id="searchBtn"></button>
+        <section id="search-history"></section>
+      </form>
+      <div class="col">
+        <div class="card" id="main">
+          <h2 class="card-header"></h2>
+          <p id="display-temp"></p>
+          <p id="display-hum"></p>
+          <p id="display-wind"></p>
+          <p id="display-uv"></p>
         </div>
-        <script src="https://kit.fontawesome.com/f16c46f2bf.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="assets/script.js"></script>
-    </body>
+        <h2 id="display-h2">5 Day Forecast:</h2>
+        <section id="5-day">
+          <div class="card" id="day-1" style="width: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <i id="weather-icon"></i>
+              <p class="card-text">
+                Temp:
+                <br /><br />
+                Humidity:
+              </p>
+            </div>
+          </div>
+          <div class="card" id="day-2" style="width: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <i id="weather-icon"></i>
+              <p class="card-text">
+                Temp:
+                <br /><br />
+                Humidity:
+              </p>
+            </div>
+          </div>
+          <div class="card" id="day-3" style="width: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <i id="weather-icon"></i>
+              <p class="card-text">
+                Temp:
+                <br /><br />
+                Humidity:
+              </p>
+            </div>
+          </div>
+          <div class="card" id="day-4" style="width: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <i id="weather-icon"></i>
+              <p class="card-text">
+                Temp:
+                <br /><br />
+                Humidity:
+              </p>
+            </div>
+          </div>
+          <div class="card" id="day-5" style="width: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <i id="weather-icon"></i>
+              <p class="card-text">
+                Temp:
+                <br /><br />
+                Humidity:
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/f16c46f2bf.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/script.js"></script>
+  </body>
 </html>
