@@ -1,40 +1,48 @@
 .page-header {
-    background-color: black;
+  background-color: black;
 }
 
 #display-h1 {
-    text-align: center;
-    color: white;
-    padding: 20px;
+  text-align: center;
+  color: white;
+  padding: 20px;
 }
 
 #display-temp {
-    padding: 20px;
+  padding: 20px;
 }
 
 #display-wind {
-    padding: 20px;
+  padding: 20px;
 }
 
 #display-hum {
-    padding: 20px;
+  padding: 20px;
 }
 
 #display-uv {
-    padding: 20px;
+  padding: 20px;
 }
 
 #display-h2 {
-    margin-left:245px;
+  margin-left: 245px;
 }
 
 #main {
-    margin-left: 250px;
-    bottom: 60px;
+  margin-left: 250px;
+  bottom: 60px;
 }
 
-#day-1, #day-2, #day-3, #day-4, #day-5 {
-    float: right;
-    background-color: #6495ed;
-    color: white;
+#day-1,
+#day-2,
+#day-3,
+#day-4,
+#day-5 {
+  float: right;
+  background-color: #6495ed;
+  color: white;
+}
+
+#search-history {
+  list-style: none;
 }

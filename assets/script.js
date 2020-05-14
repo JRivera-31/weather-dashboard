@@ -20,20 +20,17 @@ $("#searchBtn").on("click", function () {
 
   $(".card-header").text(userCity);
 
-  //   var searchHistoryArr = [];
+  // call function to display main card
+  displayMain(userCity);
 
-  //   // add each search to seach history
-  //   for (var i = 0; i < searchHistoryArr.length; i++) {
-  //     var searchHistoryDiv = $("<div>");
-  //     var searchHistoryText = $("<p>");
+  //call function to display 5-day forecast
+  displayForecast(userCity);
 
-  //     searchHistoryText.text("<hr>" + searchHistoryArr[i] + "<hr>");
-  //     searchHistoryText.attr("data-city", searchHistoryArr[i]);
+  // call search history function
+  searchHistory();
+});
 
-  //     searchHistoryDiv.append(searchHistoryText);
-  //     $("#seach-history").prepend(searchHistoryDiv);
-  //   }
-
+function displayMain(userCity) {
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     userCity +
@@ -49,7 +46,10 @@ $("#searchBtn").on("click", function () {
     var windSpeed = parseFloat(response.wind.speed);
     var lat = parseFloat(response.coord.lat);
     var lon = parseFloat(response.coord.lon);
+    var iconcode = response.weather[0].icon;
 
+    var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+    // ajax function to get UV index
     $.ajax({
       url:
         "http://api.openweathermap.org/data/2.5/uvi?appid=ef720fca1b9f6063f3226146f04c9dfc&lat=" +
@@ -64,8 +64,37 @@ $("#searchBtn").on("click", function () {
 
     // calculate temperature
     var fTemp = Math.floor(temp - 273.15) * 1.8 + 32;
+
+    // display elements
     $("#display-temp").text("Temperature: " + fTemp);
     $("#display-hum").text("Humidity: " + humidity);
     $("#display-wind").text("Wind Speed: " + windSpeed);
+    var image = $("<img>").attr("src", iconurl);
+    $(".card-header").append(image);
   });
-});
+}
+
+function searchHistory() {
+  var searchHistoryArr = [];
+  searchHistoryArr.push($("#city-search").val().trim());
+  $("#city-search").val("");
+
+  $.each(searchHistoryArr, function (index, value) {
+    $("#search-history")
+      .append("<li (" + index + ")'>" + value + "</li>")
+      .addClass("search-history-item");
+  });
+}
+
+// function to display 5 day forecast
+function displayForecast(userCity) {
+  $.ajax({
+    url:
+      "api.openweathermap.org/data/2.5/forecast?q=" +
+      userCity +
+      "&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+  });
+}
