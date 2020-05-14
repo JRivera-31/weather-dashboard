@@ -40,7 +40,6 @@ function displayMain(userCity) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     var temp = parseFloat(response.main.temp);
     var humidity = parseInt(response.main.humidity);
     var windSpeed = parseFloat(response.wind.speed);
@@ -84,17 +83,24 @@ function searchHistory() {
       .append("<li (" + index + ")'>" + value + "</li>")
       .addClass("search-history-item");
   });
+
+  //   for(var i=0; i<searchHistoryArr.length;i++) {
+  //       localStorage.setItem("city", JSON.stringify(split("")))
+  //   }
 }
 
 // function to display 5 day forecast
 function displayForecast(userCity) {
   $.ajax({
     url:
-      "api.openweathermap.org/data/2.5/forecast?q=" +
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
       userCity +
-      "&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
+      "&units=imperial&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
     method: "GET",
   }).then(function (response) {
     console.log(response);
+    var results = response.list;
+
+    // for loop to display 5 day forecast?
   });
 }
