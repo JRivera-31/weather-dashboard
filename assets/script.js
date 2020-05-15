@@ -23,8 +23,20 @@ $("#searchBtn").on("click", function () {
   // call function to display main card
   displayMain(userCity);
 
-  //call function to display 5-day forecast
-  displayForecast(userCity);
+  //call function to display day 1 of 5 day forecast
+  displayDay1(userCity);
+
+  //call function to display day 2 of 5 day forecast
+  displayDay2(userCity);
+
+  // //call function to display day 3 of 5 day forecast
+  displayDay3(userCity);
+
+  // //call function to display day 4 of 5 day forecast
+  displayDay4(userCity);
+
+  // //call function to display day 5 of 5 day forecast
+  displayDay5(userCity);
 
   // call search history function
   searchHistory();
@@ -89,8 +101,8 @@ function searchHistory() {
   //   }
 }
 
-// function to display 5 day forecast
-function displayForecast(userCity) {
+// function to display day 1 forecast
+function displayDay1(userCity) {
   $.ajax({
     url:
       "https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -99,8 +111,123 @@ function displayForecast(userCity) {
     method: "GET",
   }).then(function (response) {
     console.log(response);
-    var results = response.list;
+    var temp = response.list[0].main.temp;
+    var humidity = response.list[0].main.humidity;
+    var iconcode = response.list[0].weather[0].icon;
+    var date = response.list[0].dt_txt;
 
-    // for loop to display 5 day forecast?
+    var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+
+    date = moment(date).format("MM/DD/YYYY");
+
+    $(".card-title1").append(date);
+    var image = $("<img>").attr("src", iconurl);
+    $("#weather-icon1").append(image);
+    $("#temp1").text("Temperature: " + temp);
+    $("#humidity1").text("Humidity " + humidity);
+  });
+}
+
+// function to display day 2
+function displayDay2(userCity) {
+  $.ajax({
+    url:
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      userCity +
+      "&units=imperial&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
+    method: "GET",
+  }).then(function (response) {
+    var temp = response.list[7].main.temp;
+    var humidity = response.list[7].main.humidity;
+    var iconcode = response.list[7].weather[0].icon;
+    var date = response.list[7].dt_txt;
+
+    var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+
+    date = moment(date).format("MM/DD/YYYY");
+
+    $(".card-title2").append(date);
+    var image = $("<img>").attr("src", iconurl);
+    $("#weather-icon2").append(image);
+    $("#temp2").text("Temperature: " + temp);
+    $("#humidity2").text("Humidity " + humidity);
+  });
+}
+
+// function to display day 3
+function displayDay3(userCity) {
+  $.ajax({
+    url:
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      userCity +
+      "&units=imperial&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
+    method: "GET",
+  }).then(function (response) {
+    var temp = response.list[15].main.temp;
+    var humidity = response.list[15].main.humidity;
+    var iconcode = response.list[15].weather[0].icon;
+    var date = response.list[15].dt_txt;
+
+    var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+
+    date = moment(date).format("MM/DD/YYYY");
+
+    $(".card-title3").append(date);
+    var image = $("<img>").attr("src", iconurl);
+    $("#weather-icon3").append(image);
+    $("#temp3").text("Temperature: " + temp);
+    $("#humidity3").text("Humidity " + humidity);
+  });
+}
+
+// function to display day 4
+function displayDay4(userCity) {
+  $.ajax({
+    url:
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      userCity +
+      "&units=imperial&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
+    method: "GET",
+  }).then(function (response) {
+    var temp = response.list[23].main.temp;
+    var humidity = response.list[23].main.humidity;
+    var iconcode = response.list[23].weather[0].icon;
+    var date = response.list[23].dt_txt;
+
+    var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+
+    date = moment(date).format("MM/DD/YYYY");
+
+    $(".card-title4").append(date);
+    var image = $("<img>").attr("src", iconurl);
+    $("#weather-icon4").append(image);
+    $("#temp4").text("Temperature: " + temp);
+    $("#humidity4").text("Humidity " + humidity);
+  });
+}
+
+//function display day 5
+function displayDay5(userCity) {
+  $.ajax({
+    url:
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      userCity +
+      "&units=imperial&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
+    method: "GET",
+  }).then(function (response) {
+    var temp = response.list[31].main.temp;
+    var humidity = response.list[31].main.humidity;
+    var iconcode = response.list[31].weather[0].icon;
+    var date = response.list[31].dt_txt;
+
+    var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+
+    date = moment(date).format("MM/DD/YYYY");
+
+    $(".card-title5").append(date);
+    var image = $("<img>").attr("src", iconurl);
+    $("#weather-icon5").append(image);
+    $("#temp5").text("Temperature: " + temp);
+    $("#humidity5").text("Humidity " + humidity);
   });
 }
