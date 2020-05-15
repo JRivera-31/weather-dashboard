@@ -110,7 +110,6 @@ function displayDay1(userCity) {
       "&units=imperial&appid=ef720fca1b9f6063f3226146f04c9dfc&lat",
     method: "GET",
   }).then(function (response) {
-    console.log(response);
     var temp = response.list[0].main.temp;
     var humidity = response.list[0].main.humidity;
     var iconcode = response.list[0].weather[0].icon;
@@ -120,9 +119,9 @@ function displayDay1(userCity) {
 
     date = moment(date).format("MM/DD/YYYY");
 
-    $(".card-title1").append(date);
+    $(".card-title1").empty().append(date);
     var image = $("<img>").attr("src", iconurl);
-    $("#weather-icon1").append(image);
+    $("#weather-icon1").empty().append(image);
     $("#temp1").text("Temperature: " + temp);
     $("#humidity1").text("Humidity " + humidity);
   });
@@ -146,9 +145,9 @@ function displayDay2(userCity) {
 
     date = moment(date).format("MM/DD/YYYY");
 
-    $(".card-title2").append(date);
+    $(".card-title2").empty().append(date);
     var image = $("<img>").attr("src", iconurl);
-    $("#weather-icon2").append(image);
+    $("#weather-icon2").empty().append(image);
     $("#temp2").text("Temperature: " + temp);
     $("#humidity2").text("Humidity " + humidity);
   });
@@ -172,9 +171,9 @@ function displayDay3(userCity) {
 
     date = moment(date).format("MM/DD/YYYY");
 
-    $(".card-title3").append(date);
+    $(".card-title3").empty().append(date);
     var image = $("<img>").attr("src", iconurl);
-    $("#weather-icon3").append(image);
+    $("#weather-icon3").empty().append(image);
     $("#temp3").text("Temperature: " + temp);
     $("#humidity3").text("Humidity " + humidity);
   });
@@ -198,9 +197,9 @@ function displayDay4(userCity) {
 
     date = moment(date).format("MM/DD/YYYY");
 
-    $(".card-title4").append(date);
+    $(".card-title4").empty().append(date);
     var image = $("<img>").attr("src", iconurl);
-    $("#weather-icon4").append(image);
+    $("#weather-icon4").empty().append(image);
     $("#temp4").text("Temperature: " + temp);
     $("#humidity4").text("Humidity " + humidity);
   });
@@ -224,9 +223,9 @@ function displayDay5(userCity) {
 
     date = moment(date).format("MM/DD/YYYY");
 
-    $(".card-title5").append(date);
+    $(".card-title5").empty().append(date);
     var image = $("<img>").attr("src", iconurl);
-    $("#weather-icon5").append(image);
+    $("#weather-icon5").empty().append(image);
     $("#temp5").text("Temperature: " + temp);
     $("#humidity5").text("Humidity " + humidity);
   });
