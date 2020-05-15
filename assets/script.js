@@ -17,8 +17,11 @@
 $("#searchBtn").on("click", function () {
   event.preventDefault();
   var userCity = $("#city-search").val().trim();
+  var date = moment().format("L");
 
-  $(".card-header").text(userCity);
+  $(".card-header")
+    .text(userCity)
+    .append(" " + date);
 
   // call function to display main card
   displayMain(userCity);
